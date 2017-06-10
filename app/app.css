@@ -1,0 +1,45 @@
+html, body {
+  background-color: #263238;
+}
+.toolbar {
+  background-color: #263238;
+  color: #FFFFFF;
+  font-size: 18px;
+}
+
+.appName {
+  padding-left: 30px;
+}
+
+#settings {
+  right: 5%;
+  color: '#FFFFFF'
+}
+
+.profile-picture {
+  margin-top: 30px;
+	border-radius: 100%;
+	overflow: hidden;
+	-webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;	
+}
+.big-profile-picture {
+  margin: 0 auto;
+  border: 5px solid #263238;
+  width: 100px;
+  height: 100px;
+	}
+#username {
+  margin: 25px 0 16px;
+  text-align: center;
+}
+.notes {
+  height: 80px;
+  background-color: #72599A;
+}
+.graph {
+  padding: 50px;
+  background-color: #72599A;
+  color: #FFFFFF;
+}

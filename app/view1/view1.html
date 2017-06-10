@@ -1,0 +1,32 @@
+<div layout='row'>
+  <div flex='30' layout='column'>
+    <md-card md-theme-watch>
+      <div class="profile-picture big-profile-picture">
+        <img width="100px" ng-src="../images/girl.png" >
+      </div>
+      <h1 id='username'>Kate</h1>
+    </md-card>
+    <md-card class='notes' ng-repeat="pesel in pesels">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Pesel's id {{pesel.id}} </span>
+          <span class="md-subhead">Name is: {{pesel.name}}</span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="md-media-sm card-media"></div>
+        </md-card-title-media>
+      </md-card-title>
+      <!--<md-card-actions layout="row" layout-align="end center">
+        <md-button>Delete</md-button>
+      </md-card-actions>-->
+    </md-card>
+  </div>
+  <div flex='70'>
+    <md-card>
+      <div class='graph'>
+        <canvas id="line" class="chart chart-line" chart-data="data" chart-colors="colors" chart-labels="labels" 
+        chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick"></canvas>
+      </div>
+    </md-card>
+  </div>
+</div>
