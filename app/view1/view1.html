@@ -1,38 +1,21 @@
-<div layout='row'>
-  <div flex='40' layout='column'>
-    <!--<md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline">Kate</span>
-          <span class="md-subhead"></span>
+<div layout='row' style="height:70vh;">
+  <div flex='40' layout='column' id='history'>
+    <!--<md-card class='notes' ng-repeat="event in events">
+      <md-card-title style='height:30px;'>
+        <md-card-title-text >
+          <span class="md-headline" ng-if="isSL(event)"><img style="margin-right: 10px; justify-content: center;" ng-src="../images/blood.png"/>Sugar Level is: {{event.value}}</span>
+          <span class="md-subhead" style="color:#B2EBF2; font-size:15px;">{{toTime(event)}}</span>
         </md-card-title-text>
-        <md-card-title-media>
-          <div class="md-media-sm card-media">
-            <img width="100px" ng-src="../images/girl.png" >
-          </div>
-        </md-card-title-media>
       </md-card-title>
-      
-      <md-card-actions layout="row" layout-align="end center">
-        <md-button>Edit</md-button>
-      </md-card-actions>
     </md-card>-->
-    
-    <md-card class='notes' ng-repeat="event in events">
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline" ng-if="isSL(event)"><img style="padding-right:5px;" ng-src="../images/blood.png"/>Sugar Level is: {{event.value}}</span>
-          <span class="md-subhead">{{toTime(event)}}</span>
-        </md-card-title-text>
-        <md-card-title-media>
-          <div class="md-media-sm card-media"></div>
-        </md-card-title-media>
-      </md-card-title>
-    </md-card>
-    
+    <div class='notes' ng-repeat="event in events">
+      <div style="margin: 10px;">
+        <span class="md-headline"  ng-if="isSL(event)"><img style="margin-right: 10px; justify-content: center;" ng-src="../images/blood.png"/>Sugar Level is: {{event.value}}</span>
+        <br />
+        <span class="md-subhead" style="color:#B2EBF2; font-size:15px;">{{toTime(event)}}</span>
+      </div>
+    </div>
   </div>
-  
-  
   <div flex='60'>
     <md-card>
       <div class='graph'>
@@ -41,5 +24,4 @@
       </div>
     </md-card>
   </div>
-
 </div>

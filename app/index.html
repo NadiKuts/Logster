@@ -9,6 +9,7 @@
   <title>My AngularJS App</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
@@ -19,14 +20,14 @@
 <body id='grad1'>
   <md-toolbar  ng-controller='AppCtrl'>
     <div class="toolbar" layout='row'>
-      <div flex='80'>
-        <h2 class="appName">Sugar Notifications </h2>
+      <div flex='85'>
+        <h2 class="appName" style="font-family:Lobster; font-size:40px; font-weight: 100; margin: 10px 0 20px 30px;">Logster</h2>
       </div>
-      <div flex='5' class='profile-picture big-profile-picture'>
-        <!--<img class="md-avatar" ng-src="../images/girl.png" >-->
+      <div flex='5' style='display: flex; align-items: center; justify-content: center;'>
+        <img class="md-avatar" style='height:35px; width:35px; border: 2px solid #ECEFF1;border-radius: 100%;' ng-src="../images/user.png" >
       </div>
-      <div flex='10'>
-        <md-button class="md-icon-button" id='settings' ng-click="textDialog($event)">
+      <div flex='5' style='display: flex; align-items: center; justify-content: center;'>
+        <md-button class="md-icon-button" id='settings' ng-click="textDialog($event)" style='height:30px; width:30px;'>
           <i class="material-icons">settings</i>
         </md-button>
       </div>
@@ -42,10 +43,10 @@
 
 
   <script type="text/ng-template" id="testDialog.tmpl.html">
-    <md-dialog aria-label="Test Dialog" flex="45">
+    <md-dialog aria-label="Test Dialog" flex="30" style='display: flex; align-items: center; justify-content: center;'>
       <md-toolbar class="md-whiteframe-z2">
         <div class="md-toolbar-tools">
-          <h3 flex>Test Dialog</h3>
+          <h3 flex>Contact information</h3>
         </div>
       </md-toolbar>
       <md-dialog-content>
@@ -92,8 +93,8 @@
       </md-dialog-content>
       <md-divider></md-divider>
       <md-dialog-actions layout="row">
-        <md-button ng-click="close()">
-          Close
+        <md-button class='md-primary' ng-click="close()">
+          SAVE
         </md-button>
       </md-dialog-actions>
     </md-dialog>

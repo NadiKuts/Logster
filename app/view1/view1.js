@@ -29,7 +29,7 @@ controllers.controller('View1Ctrl', ['$scope', '$interval', 'API', function ($sc
      });
    };
   
-  var promise = $interval(refreshData, 5000);
+  var promise = $interval(refreshData, 2000);
   console.log($scope.events);
   
 
