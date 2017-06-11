@@ -1,16 +1,8 @@
 <div layout='row' style="height:70vh;">
   <div flex='40' layout='column' id='history'>
-    <!--<md-card class='notes' ng-repeat="event in events">
-      <md-card-title style='height:30px;'>
-        <md-card-title-text >
-          <span class="md-headline" ng-if="isSL(event)"><img style="margin-right: 10px; justify-content: center;" ng-src="../images/blood.png"/>Sugar Level is: {{event.value}}</span>
-          <span class="md-subhead" style="color:#B2EBF2; font-size:15px;">{{toTime(event)}}</span>
-        </md-card-title-text>
-      </md-card-title>
-    </md-card>-->
     <div class="notes" ng-repeat="event in events">
       <div style="margin: 10px;">
-        <span class="md-headline"  ng-if="isSL(event)"><img style="margin-right: 10px; justify-content: center;" ng-src="../images/blood.png"/>Sugar Level is: {{event.value}}</span>
+        <span class="md-headline"  ng-if="isSL(event)"><img style="height:30px; width:30px; margin-right: 10px; justify-content: center;" ng-src="../images/blood.png"/>Sugar Level is: {{event.value}}</span>
         <br />
         <span class="md-subhead" style="color:#B2EBF2; font-size:15px;">{{toTime(event)}}</span>
       </div>
