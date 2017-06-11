@@ -10,19 +10,16 @@ controllers.config(['$routeProvider', function($routeProvider) {
   });
 }]);
 
-controllers.controller('View1Ctrl', ['$scope', '$interval', 'API', function ($scope, $interval, API) {
+controllers.controller('View1Ctrl', ['$scope', '$interval', '$animate', 'API', function ($scope, $interval, $animate, API) {
   $scope.count = 0;
    var refreshData = function() { 
      API.getEvents().then(function (data) {
-       /*$scope.events = [];
-       for (var j=0; j<data.data.data.length; j++) {
-         $scope.events.push(data.data.data[j]);
-         $scope.events[j].class = 'abc';
-       }*/
+
        $scope.events = data.data.data;
-       console.log($scope.events);
+       //console.log($scope.events);
        $scope.labels = [];
        $scope.data = [[]];
+       
        for (var i = 0; i < $scope.events.length; i++) {
          $scope.events[i].class = 'abx';
          var event = $scope.events[i];
@@ -32,23 +29,25 @@ controllers.controller('View1Ctrl', ['$scope', '$interval', 'API', function ($sc
          }
        }
        $scope.events.reverse();
+       if ($scope.count != $scope.events.length) {
+         $scope.events[0].class = 'NEW';
+         
+         $scope.count = $scope.events.length;
+       }
        
      });
    };
   
   var promise = $interval(refreshData, 2000);
-  console.log($scope.events);
   
-  /*if ($scope.count != $scope.events.length) {
-    $scope.events[0].class = 'NEW';
-    $scope.count = $scope.events.length;
-  }*/
   
   $scope.isSL = function(event) {
     return event.type == 'SL'
   }
   
-  
+  $scope.ifNew = function(event) {
+    $animate.addClass(event, 'notesAdded');
+  }
   
   $scope.toTime = function(event) {
     var time = event.date.substring(0, 10) + ' ' + event.date.substring(11, 16);
