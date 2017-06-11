@@ -17,6 +17,20 @@ angular.module('myApp', [
 }])
 
 .controller('AppCtrl', function($scope, $mdDialog) {
+  
+  $scope.user = {
+    name: "Kate",
+    email: "nadikutsenko@gmail.com"
+  };
+  $scope.doctor = {
+    name: "Dr.Smith",
+    email: "dr.smith@gmail.com"
+  };
+  $scope.family = {
+    name: "Mom",
+    email: "mummy@gmail.com"
+  };
+  
   $scope.textDialog = function($event) {
       $mdDialog.show({
         controller: DialogController,

@@ -1,27 +1,39 @@
 <div layout='row'>
-  <div flex='30' layout='column'>
-    <md-card md-theme-watch>
-      <div class="profile-picture big-profile-picture">
-        <img width="100px" ng-src="../images/girl.png" >
-      </div>
-      <h1 id='username'>Kate</h1>
-    </md-card>
-    <md-card class='notes' ng-repeat="pesel in pesels">
+  <div flex='40' layout='column'>
+    <!--<md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
       <md-card-title>
         <md-card-title-text>
-          <span class="md-headline">Pesel's id {{pesel.id}} </span>
-          <span class="md-subhead">Name is: {{pesel.name}}</span>
+          <span class="md-headline">Kate</span>
+          <span class="md-subhead"></span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="md-media-sm card-media">
+            <img width="100px" ng-src="../images/girl.png" >
+          </div>
+        </md-card-title-media>
+      </md-card-title>
+      
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button>Edit</md-button>
+      </md-card-actions>
+    </md-card>-->
+    
+    <md-card class='notes' ng-repeat="event in events">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline" ng-if="isSL(event)"><img style="padding-right:5px;" ng-src="../images/blood.png"/>Sugar Level is: {{event.value}}</span>
+          <span class="md-subhead">{{toTime(event)}}</span>
         </md-card-title-text>
         <md-card-title-media>
           <div class="md-media-sm card-media"></div>
         </md-card-title-media>
       </md-card-title>
-      <!--<md-card-actions layout="row" layout-align="end center">
-        <md-button>Delete</md-button>
-      </md-card-actions>-->
     </md-card>
+    
   </div>
-  <div flex='70'>
+  
+  
+  <div flex='60'>
     <md-card>
       <div class='graph'>
         <canvas id="line" class="chart chart-line" chart-data="data" chart-colors="colors" chart-labels="labels" 
@@ -29,4 +41,5 @@
       </div>
     </md-card>
   </div>
+
 </div>

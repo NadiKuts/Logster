@@ -19,10 +19,18 @@
 <body id='grad1'>
   <md-toolbar  ng-controller='AppCtrl'>
     <div class="toolbar" layout='row'>
-      <h2 flex='85' class="appName">Sugar Notifications </h2>
-      <md-button flex='15' class="md-icon-button md-primary" id='settings' ng-click="textDialog($event)">
-        <i class="material-icons">settings</i>
-      </md-button>
+      <div flex='80'>
+        <h2 class="appName">Sugar Notifications </h2>
+      </div>
+      <div flex='5' class='profile-picture big-profile-picture'>
+        <!--<img class="md-avatar" ng-src="../images/girl.png" >-->
+      </div>
+      <div flex='10'>
+        <md-button class="md-icon-button" id='settings' ng-click="textDialog($event)">
+          <i class="material-icons">settings</i>
+        </md-button>
+      </div>
+      
     </div>
   </md-toolbar>
   <!--<ul class="menu">
@@ -30,7 +38,7 @@
     <md-button ng-click="changeTab();"><a href="#!/view2">view2</a></md-button>
   </ul>-->
 
-  <div ng-view></div>
+  <div style="margin: 5%" ng-view></div>
 
 
   <script type="text/ng-template" id="testDialog.tmpl.html">
@@ -41,10 +49,46 @@
         </div>
       </md-toolbar>
       <md-dialog-content>
-        <md-content layout-padding>
-          Did it open from the origin button? <br><br>
-          How about closing to the origin button?
-        </md-content>
+          
+          <md-content layout-gt-sm="row" layout-padding>
+            <div>
+              <md-input-container>
+                <label>Me</label>
+                <input ng-model="user.name">
+              </md-input-container>
+              <md-input-container>
+                <label>Email</label>
+                <input ng-model="user.email" type="email">
+              </md-input-container>
+            </div>
+          </md-content>
+
+          <md-content layout-gt-sm="row" layout-padding>
+            <div>
+              <md-input-container>
+                <label>My Doctor</label>
+                <input ng-model="doctor.name">
+              </md-input-container>
+              <md-input-container>
+                <label>Email</label>
+                <input ng-model="doctor.email" type="email">
+              </md-input-container>
+            </div>
+          </md-content>
+
+          <md-content layout-gt-sm="row" layout-padding>
+            <div>
+              <md-input-container>
+                <label>My Family Member</label>
+                <input ng-model="family.name">
+              </md-input-container>
+              <md-input-container>
+                <label>Email</label>
+                <input ng-model="family.email" type="email">
+              </md-input-container>
+            </div>
+          </md-content>
+          
       </md-dialog-content>
       <md-divider></md-divider>
       <md-dialog-actions layout="row">

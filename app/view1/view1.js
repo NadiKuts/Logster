@@ -10,13 +10,41 @@ controllers.config(['$routeProvider', function($routeProvider) {
   });
 }]);
 
-controllers.controller('View1Ctrl', ['$scope', 'API', function ($scope, API) {
-  API.getPuppies().then(function (data) {
-    $scope.pesels = data.data.data;
-    console.log($scope.pesels);
-  });
+controllers.controller('View1Ctrl', ['$scope', '$interval', 'API', function ($scope, $interval, API) {
+   var refreshData = function() { 
+     API.getEvents().then(function (data) {
+       $scope.events = data.data.data;
+       console.log($scope.events);
+       $scope.labels = [];
+       $scope.data = [[]];
+       for (var i = 0; i < $scope.events.length; i++) {
+         var event = $scope.events[i];
+         if ($scope.isSL(event)) {
+           $scope.data[0].push(parseInt(event.value, 10));
+           $scope.labels.push($scope.toTime(event));
+         }
+       }
+       $scope.events.reverse();
+       
+     });
+   };
   
-  $scope.labels = ["5.June", "6.June", "7.June", "8.June", "9.June", "10.June", "11.June"];
+  var promise = $interval(refreshData, 5000);
+  console.log($scope.events);
+  
+
+
+  
+  $scope.isSL = function(event) {
+    return event.type == 'SL'
+  }
+  
+  $scope.toTime = function(event) {
+    var time = event.date.substring(0, 10) + ' ' + event.date.substring(11, 16);
+    return time;
+  }
+
+  //$scope.labels = ["5.June", "6.June", "7.June", "8.June", "9.June", "10.June", "11.June"];
   
   $scope.colors = [{
         backgroundColor : '#FFFFFF',
@@ -28,9 +56,9 @@ controllers.controller('View1Ctrl', ['$scope', 'API', function ($scope, API) {
         fill: false /* this option hide background-color */
     }];
   $scope.series = ['Series A'];
-  $scope.data = [
+  /*$scope.data = [
     [65, 59, 80, 81, 56, 55, 40]
-  ];
+  ];*/
   $scope.onClick = function (points, evt) {
     console.log(points, evt);
   };

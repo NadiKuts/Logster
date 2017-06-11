@@ -1,14 +1,16 @@
 var controllers = angular.module('myApp');
-controllers.value('Server', 'https://desolate-savannah-86378.herokuapp.com')
+controllers.value('Server', 'https://thawing-reaches-59054.herokuapp.com')
 
-controllers.factory('API', ['$http', 'Server', function ($http, Server) {
+controllers.factory('API', ['$http', '$timeout', 'Server', function ($http, $timeout, Server) {
     var API = {};
-
-    API.getPuppies = function () {
-        return $http.get(Server + '/api/puppies')
+    var loadTime = 1000;
+    
+    API.getEvents = function () {
+        return $http.get(Server + '/api/events')
     };
-
-    API.getProfile = function (id) {
+    
+    
+    /*API.getProfile = function (id) {
         return $http.get(Server + '/' + id);
     };
 
@@ -22,9 +24,7 @@ controllers.factory('API', ['$http', 'Server', function ($http, Server) {
 
     API.deleteProfile = function (id) {
         return $http.delete(Server + '/' + id);
-    };
-
-
+    };*/
 
     return API;
 }])
