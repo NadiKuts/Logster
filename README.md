@@ -15,14 +15,14 @@ Person: "Alexa, ask Logster to send a report" Alexa: "For what period of time?" 
 
 ### Used technologies
 **Client Side**
-⋅⋅* HTML, CSS, JavaScript
-⋅⋅* AngularJS
-⋅⋅* AngularJS Material https://material.angularjs.org/
+* HTML, CSS, JavaScript
+* AngularJS
+* AngularJS Material https://material.angularjs.org/
 
 **Server Side**
-⋅⋅*Nodejs + Express + postgre to manage routes and store the data
-⋅⋅*'Alexa-app' and 'gmail-send' npm packages to create custom Alexa Skill
-⋅⋅*Hosted on Heroku
+* Nodejs + Express + postgre to manage routes and store the data
+* 'Alexa-app' and 'gmail-send' npm packages to create custom Alexa Skill
+* Hosted on Heroku
 
 https://github.com/AleksShirokov/HealthHack
 
